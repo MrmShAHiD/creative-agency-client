@@ -44,14 +44,14 @@ const OurWorks = () => {
         ]
       };
     return (
-        <div style={{backgroundColor:'#111430'}} class="bg-color p-5">
+        <div style={{backgroundColor:'#111430'}} className="bg-color p-5 mt-5">
         <h2 class="text-center text-white"> Here are some of <span style={{color:'#7AB259'}}>our works</span></h2>
-        <Slider {...settings} class="mt-5">
+        <Slider {...settings} className="mt-5">
           <div>
-            <img class="img-fluid p-3" src={carImage1} alt=""/>
+            <img className="img-fluid p-3" src={carImage1} alt=""/>
           </div>
           <div>
-            <img class="img-fluid p-3" src={carImage2} alt=""/>
+            <img className="img-fluid p-3" src={carImage2} alt=""/>
           </div>
           <div>
             <img style={{width:'500px', height:'370px'}} class="img-fluid p-3" src={carImage3} alt=""/>
@@ -61,15 +61,6 @@ const OurWorks = () => {
           </div>
           <div>
             <img class="img-fluid p-3" src={carImage5} alt=""/>
-          </div>
-          <div>
-            <img style={{width:'500px', height:'370px'}} class="img-fluid p-3" src={carImage3} alt=""/>
-          </div>
-          <div>
-            <img class="img-fluid p-3" src={carImage1} alt=""/>
-          </div>
-          <div>
-            <img class="img-fluid p-3" src={carImage2} alt=""/>
           </div>
         </Slider>
       </div>
