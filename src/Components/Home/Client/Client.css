@@ -1,0 +1,7 @@
+.sec1:before{
+    content:'';
+    position: absolute;
+    border-bottom: 100px solid white;
+    border-left: 98vw solid transparent;
+    top: -100px;
+}
