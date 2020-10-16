@@ -8,28 +8,28 @@ const Sidebar = () => {
     const {user} = useContext(UserContext);
     const [loggedInUser, setLoggedInUser] = user;
     return (
-        <div className="sidebar d-flex flex-column justify-content-between col-md-2 py-5 px-4" style={{height:'100vh'}}>
+        <div className="d-flex flex-column col-md-2 py-5 px-4" style={{height:'100vh', backgroundColor:'#E5E5E5'}}>
             <div>
                 <Link to="/">
                     <img src={logo} alt="" style={{ maxWidth: "150px" }} />
                 </Link>
             </div>
-            <div>
+            <div className="mt-5 py-5">
             <ul className="list-unstyled">
                 <div>
                     <li>
-                        <Link to="/orders/:_id">
-                            <h2>Orders</h2>
+                        <Link to="/my-orders">
+                            Orders
                         </Link>
                     </li>
                     <li>
                         <Link to="/serviceList">
-                            <h2>Service List</h2>
+                            Service List
                         </Link>
                     </li>
                     <li>
                         <Link to="/feedback">
-                            <h2>Review</h2>
+                            Review
                         </Link>
                     </li>
                     <li>

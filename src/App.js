@@ -2,8 +2,7 @@ import React, { createContext, useState } from 'react';
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
 import './App.css';
 import Login from './Components/Login/Login/Login';
@@ -14,6 +13,7 @@ import Feedback from './Components/Dashboard/Feedback/Feedback';
 import ServiceList from './Components/Dashboard/ServiceList/ServiceList';
 import AdminServiceList from './Components/Dashboard/AdminServiceList/AdminServiceList';
 import ComingSoon from './Components/ComingSoon/ComingSoon';
+import MyOrders from './Components/Dashboard/MyOrders/MyOrders';
 
 export const UserContext = createContext();
 
@@ -43,7 +43,7 @@ function App() {
             <ComingSoon></ComingSoon>
           </Route>
           <PrivateRoute exact path="/my-orders">
-						
+						<MyOrders></MyOrders>
 					</PrivateRoute>
 					<PrivateRoute exact path="/orders/:_id">
 						<Orders></Orders>

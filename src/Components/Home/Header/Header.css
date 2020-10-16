@@ -1,4 +1,4 @@
 .header-bg{
     background-color: #FBD062;
-    
+    clip-path: polygon(0 0, 100% 0, 100% 80%, 0% 96%);
 }
