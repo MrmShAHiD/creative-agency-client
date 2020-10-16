@@ -8,10 +8,11 @@ import { Link, useHistory, useLocation } from 'react-router-dom';
 import { UserContext } from '../../../App';
 
 const Login = () => {
-    const {user, setUser} = useContext(UserContext);
+    const {user} = useContext(UserContext);
+    const [loggedInUser, setLoggedInUser] = user;
     const history = useHistory();
     const location = useLocation();
-    const { from } = location.state || { from: { pathname: "/" } };
+    const { from } = location.state || { from: { pathname: "/orders/:_id" } };
     
     if(!firebase.apps.length){
         firebase.initializeApp(firebaseConfig);
@@ -20,19 +21,16 @@ const Login = () => {
     // sign in with google
     const handleSignInWithGoogle = () => {
         const googleProvider = new firebase.auth.GoogleAuthProvider();
-        return firebase.auth().signInWithPopup(googleProvider)
+        firebase.auth().signInWithPopup(googleProvider)
         .then(res => {
-            const user = res.user;
-            const {displayName, email} = user;
-            const signedInUser = {
-                displayName: displayName,
-                email: email,
-                isSignedIn: true
-            }
-            return signedInUser;
-        })
-        .then(res => {
-            setUser(res);
+            const {displayName, email, photoURL} = res.user;
+            const newUser = {
+                name:displayName,
+                email,
+                photoURL
+            };
+            setLoggedInUser(newUser);
+            storeAuthToken();
             history.replace(from);
         })
         .catch(err =>{
@@ -40,7 +38,16 @@ const Login = () => {
             console.log(error);
         })
     };
+    const storeAuthToken = () => {
+        firebase.auth().currentUser.getIdToken(true)
+        .then(function(idToken){
+            sessionStorage.setItem('token', idToken);
+            history.replace(from);
+        })
+        .catch(function(err){
 
+        })
+    }
     return (
         <div style={{marginTop:'50px'}} class="text-center">
             <div>

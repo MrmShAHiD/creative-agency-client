@@ -7,7 +7,7 @@ const ServiceDetails = ({services}) => {
     return (
         <div className="col-md-4 text-center mb-5">
             <Link to={{
-                pathname: "/order",
+                pathname: "/orders/:_id",
                 state: { id }
 
             }}>
