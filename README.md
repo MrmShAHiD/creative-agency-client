@@ -1,6 +1,6 @@
 ## Creative Agency
 
-This is a full-stack agency react app.
+This is a full-stack agency react app. This is the client side repository for this app.
 
 - Clients can order and edit your cart.
 - Clients can add their feedback.
